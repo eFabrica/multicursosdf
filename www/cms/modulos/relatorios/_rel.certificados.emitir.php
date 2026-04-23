@@ -169,7 +169,7 @@ if(count($_REQUEST["registros"]) > 0){
 											}
 											
 											if($dadosCurso->sigla=="B"){
-												print(", com a carga hor&aacute;ria de 151 horas aula, de acordo com Norma T&eacute;cnica n&ordm; 007/2011 do CBMDF");
+												print(", com a carga hor&aacute;ria de 155 horas aula, de acordo com Norma T&eacute;cnica n&ordm; 007/2011 do CBMDF");
 											}
 											
 											if($dadosCurso->sigla=="Bvol"){
