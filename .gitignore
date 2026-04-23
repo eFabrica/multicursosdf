@@ -1,0 +1,86 @@
+# ==========================================================================
+# Credenciais e configuracao local
+# ==========================================================================
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# WordPress: wp-config.php contem AUTH_KEYs e credenciais da instalacao.
+# Mantem apenas o sample; cada deploy cria seu proprio wp-config.php.
+www/lp/wp-config.php
+
+# ==========================================================================
+# Dumps / dados de banco (conteudo real, pesado)
+# ==========================================================================
+www/initdb/
+*.sql
+!*.schema.sql
+
+# ==========================================================================
+# Uploads dos usuarios (conteudo gerado)
+# ==========================================================================
+www/cms/uploads/*
+!www/cms/uploads/.gitkeep
+www/lp/wp-content/uploads/
+www/lp/wp-content/cache/
+www/lp/wp-content/upgrade/
+www/lp/wp-content/backup-db/
+www/lp/wp-content/backups/
+
+# ==========================================================================
+# Artefatos de desenvolvimento interno (screenshots, notas)
+# ==========================================================================
+demanda*/
+melhorias/
+
+# Scripts auxiliares ad-hoc
+fix_encoding.pl
+
+# ==========================================================================
+# Logs / cache / temporarios
+# ==========================================================================
+*.log
+*.tmp
+*.cache
+*.bak
+*.swp
+*~
+Thumbs.db
+.DS_Store
+
+# ==========================================================================
+# IDE
+# ==========================================================================
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# ==========================================================================
+# Dependencias
+# ==========================================================================
+node_modules/
+vendor/
+
+# ==========================================================================
+# Volumes Docker (se alguem commitar por engano)
+# ==========================================================================
+db_data/
+
+# ==========================================================================
+# Legado de versionamento (SVN antes do git) e backups de arquivo
+# ==========================================================================
+.svn/
+*.svn-base
+*_ORIGINAL
+*.orig
+*.old
+*.OLD
+
+# ==========================================================================
+# Lixo de shell / runtime / configuracoes locais
+# ==========================================================================
+.bash_history
+.user.ini
+.claude/

@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  apache:
+    build: .
+    container_name: php-multicursos
+    restart: always
+    ports:
+      - '8081:80'
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - DB_HOST=${DB_HOST:-db-multicursos}
+      - DB_USER=${DB_USER:-multicursosdf}
+      - DB_PASS=${DB_PASS:?Defina DB_PASS em .env}
+      - DB_NAME=${DB_NAME:-dbmulticursos}
+    depends_on:
+      - db-multicursos
+
+  db-multicursos:
+    container_name: mysql-multicursos
+    image: mysql:5.7
+    restart: always
+    command: --sql-mode=""
+    ports:
+      - '3308:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS:?Defina DB_ROOT_PASS em .env}
+      - MYSQL_DATABASE=${DB_NAME:-dbmulticursos}
+      - MYSQL_USER=${DB_USER:-multicursosdf}
+      - MYSQL_PASSWORD=${DB_PASS:?Defina DB_PASS em .env}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  db_data:

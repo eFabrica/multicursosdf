@@ -1,0 +1,259 @@
+@charset "utf-8";
+/* CSS Document */
+.linkQuemSomos{
+	color: inherit;
+	text-decoration:none		
+}
+.linkQuemSomos:hover{
+	font-weight:bold;
+	color: red;
+}
+.main {
+	width:1000px;
+	left:50%; 
+	margin:0px 0 0 -450px;
+	padding-bottom:10px;
+	position:relative;	
+}
+.sge{
+	width: 183px;
+	overflow: hidden;
+	height: 155px;
+	position: absolute;
+	top: 378px;
+	z-index: 99;
+	left: 788px;
+	display: block;
+
+}
+
+.texto{
+	width: 595px;
+	overflow: hidden;
+	height: 31px;
+	position: absolute;
+	top: 28px;
+	z-index: 99;
+	left: 389px;
+	display: block;
+	background-image: url(img/texto.png);
+}
+
+
+.logo{
+	width: 252px;
+	overflow: hidden;
+	height: 234px;
+	position: absolute;
+	top: 15px;
+	z-index: 99;
+	left: 10px;
+	display: block;
+	background-image: url(img/logo.png);
+}
+
+
+.menuHome{
+	width: 55px;
+	overflow: hidden;
+	height: 26px;
+	position: absolute;
+	top: 289px;
+	z-index: 99;
+	left: 14px;
+	display: block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+}
+.menuHome2:hover{
+background: #000000;
+
+}
+.menuQuemSomos{
+	width: 135px;
+	overflow: hidden;
+	height: 26px;
+	position: absolute;
+	top: 289px;
+	z-index: 99;
+	left: 116px;
+	display: block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+}
+.menuQuemSomos2:hover{
+background: #000000;
+}
+.menuCursos{
+	width: 84px;
+	overflow: hidden;
+	height: 26px;
+	position: absolute;
+	top: 289px;
+	z-index: 99;
+	left: 286px;
+	display: block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+}
+.menuCursos2:hover{
+background: #000000;
+}
+.menuAgenda{
+	width: 82px;
+	overflow: hidden;
+	height: 26px;
+	position: absolute;
+	top: 289px;
+	z-index: 99;
+	left: 412px;
+	display: block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+}
+.menuAgenda2:hover{
+background: #000000;
+}
+.menuLocalizacao{
+	width: 133px;
+	overflow: hidden;
+	height: 26px;
+	position: absolute;
+	top: 289px;
+	z-index: 99;
+	left: 542px;
+	display: block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+}
+.menuLocalizacao2:hover{
+background: #000000;
+}
+.menuParceiros{
+	width: 116px;
+	overflow: hidden;
+	height: 26px;
+	position: absolute;
+	top: 289px;
+	z-index: 99;
+	left: 723px;
+	display: block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+}
+.menuParceiros2:hover{
+background: #000000;
+}
+.menuContato{
+	width: 92px;
+	overflow: hidden;
+	height: 26px;
+	position: absolute;
+	top: 289px;
+	z-index: 99;
+	left: 888px;
+	display: block;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-weight: bold;
+}
+.menuContato2:hover{
+background: #000000;
+}
+
+#page1 .cols{ width:170px;}
+
+/* image replacement */
+.graphic, #prevBtn, #nextBtn, #slider1prev, #slider1next{
+margin:0;u
+padding:0;
+display:block;
+overflow:hidden;
+text-indent:-8000px;
+}
+/* // image replacement */
+
+#container{	
+margin:0 auto;
+position:relative;
+text-align:left;
+width:1000px;
+height:321px;
+background:#fff;	
+
+}	    
+#content{
+position:relative;
+}	    
+
+/* Easy Slider */
+
+#slider ul, #slider li,
+#slider2 ul, #slider2 li{
+margin:0;
+padding:0;
+list-style:none;
+}
+#slider2{margin-top:1em;}
+#slider li, #slider2 li{ 
+/* 
+define width and height of list item (slide)
+entire slider area will adjust according to the parameters provided here
+*/ 
+width: 1000px;
+height: 321px;
+overflow:hidden; 
+}   
+#prevBtn, #nextBtn,
+#slider1next, #slider1prev{ 
+display:block;
+width:30px;
+position:absolute;
+left:-30px;
+top:71px;
+z-index:1000;
+}   
+#nextBtn, #slider1next{ 
+left: 1000;
+}							
+#prevBtn a, #nextBtn a,
+#slider1next a, #slider1prev a{  
+display:block;
+position:relative;
+width:30px;
+background:url(btn_prev.gif) no-repeat 0 0;	
+}   
+#nextBtn a, #slider1next a{ 
+background:url(btn_next.gif) no-repeat 0 0;	
+}   
+
+/* numeric controls */  
+
+ol#controls{
+margin:0 0;
+padding:0;
+height:0px;	
+}
+ol#controls li{
+margin:0 0px 0 0; 
+padding:0;
+float:left;
+list-style:none;
+line-height:0px;
+height:0px;
+}
+ol#controls li a{
+float:left;
+height:0px;
+line-height:0px;
+border:0px solid #ccc;
+background:#DAF3F8;
+color:black;
+padding:0 0px;
+text-decoration:none;
+}
+ol#controls li.current a{
+background:blue;
+color:#fff;
+}
+ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+.hide_slide {display:none;}

@@ -1,0 +1,109 @@
+<?php require_once("php7_mysql_shim.php");
+// Inicia Sessão
+session_start();
+
+// Caminho da Pasta Raiz
+$pathInc = '../../';
+
+// Arquivo de Configurações
+require_once($pathInc . "inc/config.inc.php");
+
+# Dados de Logado
+	
+	// Verifica se está logado
+	if($_SESSION["dadosLogin"]["idLogado"] > 0){
+
+		// Dados do Logado
+		$_dadosLogado = $_ClassRn->getDadosTable("usuarios", "*", "id = '" . $_SESSION["dadosLogin"]["idLogado"] . "'");
+		
+		// Dados da Unidade
+		$_dadosUnidade = $_ClassRn->getDadosTable("unidades", "*", "id = '" . (($_dadosLogado->nivel == "100")?$_SESSION["idUnidade"]:$_dadosLogado->unidade) . "' AND deletado = 'N'");
+	
+	}
+
+// Biblioteca de Dinheiro
+require_once($pathInc . "lib/Dinheiro.class.php");
+
+// Biblioteca de Data
+require_once($pathInc . "lib/Data.class.php");
+
+// Dados da Unidade
+$dadosUnidade = $_ClassRn->getDadosTable("unidades", "*", "id = '" . (($_dadosLogado->nivel == "100")?$_SESSION["idUnidade"]:$_dadosLogado->unidade) . "' AND deletado = 'N' AND acesso = 'L'");
+
+// Dados da Turma
+$dadosTurma = $_ClassRn->getDadosTable("turmas", "*", "id = '" . $_REQUEST["turma"] . "'");
+
+// Dados do Curso
+$dadosCurso = $_ClassRn->getDadosTable("cursos", "*", "id = '" . $dadosTurma->curso . "'");
+?>
+<html>
+	<head>
+		<title>Documentação dos Alunos - Turma: <?php print($dadosCurso->sigla . $dadosTurma->numero);?></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link href="<?php print($pathInc);?>css/estilos.css" rel="stylesheet" type="text/css">
+	</head>
+	
+	<body>
+		<table width="700" border="0" cellspacing="2" cellpadding="2">
+			<tr>
+				<td align='left'><img src="<?php print($pathInc);?>imagens/diversos/logo.jpg"></td>
+				<td width="100%">
+					<h3>
+					<?php print($dadosUnidade->razaosocial);?> - <?php print($dadosUnidade->nomefantasia);?><br />
+					<?php print($dadosUnidade->endereco);?> - <?php print($cidadeUnidade->cidade);?> - <?php print($dadosUnidade->estado);?><br />
+					Fone: <?php print($dadosUnidade->telefonefixo);?> - CNPJ: <?php print($_ClassUtilitarios->formataCNPJ($dadosUnidade->cnpj));?>
+					</h3>	
+				</td>
+			</tr>
+		</table>
+		<table width="99%" border="0" cellpadding="2" cellspacing="2">
+			<tr>
+				<td align="center">
+					<h2><u>Entrega da Documentação dos Alunos (<?php print($dadosCurso->sigla);?><?php print($dadosTurma->numero . " <b>(" . $_ClassData->transformaData($dadosTurma->datainicio,2 ) . " à " . $_ClassData->transformaData($dadosTurma->datatermino,2 ) . ")</b>");?>)</u></h2>
+					<b>Emissão: </b><?php print(date("d/m/Y H:i:s"));?><br>
+				</td>
+			</tr>
+		</table>
+		<table width="99%" border="0" cellpadding="2" cellspacing="2">
+			<?php
+			// Contador
+			$cont = 1;
+			
+			// Busca Matrículas
+			$buscaMatriculas = $_ClassMysql->query("SELECT matriculas.empresa,
+														   alunos.nome FROM `matriculas`,`alunos` WHERE matriculas.turma = '" . $dadosTurma->id . "' AND 
+																							  alunos.id = matriculas.aluno AND
+																							  alunos.deletado = 'N' AND
+										   													  matriculas.deletado = 'N' AND
+										   													  matriculas.concluido = 'S' ORDER BY alunos.nome");
+			
+			// Verifica o total achado
+			if(mysql_num_rows($buscaMatriculas) > 0){
+				
+				// Traz Matrículas
+				while($trazMatricula = mysql_fetch_object($buscaMatriculas)){
+					
+					// Dados da Empresa
+					$dadosEmpresa = $_ClassRn->getDadosTable("clientes", "*", "id = '" . $trazMatricula->empresa . "'");
+					
+					// Dados do Aluno
+					//$trazMatricula = $_ClassRn->getDadosTable("alunos", "*", "id = '" . $trazMatricula->aluno . "'");
+					
+					?>
+					<tr>
+						<td height="35" width="50%"><ol><?php print($cont++ . ". " . $trazMatricula->nome);?></ol></td>
+						<td width="30%"><b>Assinatura:&nbsp;</b><?php print((($trazMatricula->empresa > 0)?$dadosEmpresa->nomefantasia:"____________________"));?></td>
+						<td width="20%"><b>Data:&nbsp;</b>____/____/______</td>
+					</tr>
+					<tr>
+						<td height="5"></td>
+					</tr>
+					<?php
+					
+				}
+				
+			}
+			?>
+		</table>
+	</body>
+</html>

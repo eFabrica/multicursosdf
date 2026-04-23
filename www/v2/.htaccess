@@ -1,0 +1,56 @@
+# ATENCAO: as diretivas authmail.* originalmente continham senha SMTP em texto plano.
+# Em v2 essas credenciais DEVEM vir de variaveis de ambiente do PHP (nao do .htaccess).
+# Veja melhorias1.md item 2. Se seu provedor de producao exige o formato original,
+# mova para um .htaccess fora do versionamento.
+#
+# php_flag authmail.debug OFF
+# php_value authmail.address contato@multicursosdf.com.br
+# php_value authmail.smtp_account contato=multicursosdf.com.br
+# php_value authmail.smtp smtp.multicursosdf.com.br
+# php_value authmail.password  (remover do repositorio)
+
+# Security headers (melhorias1.md item 10)
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # HSTS so deve ser ativado sob HTTPS real. Descomente apos configurar certificado:
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    #
+    # Content-Security-Policy: permite Google Fonts, GTM e iframe do Google Maps.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+</IfModule>
+
+# Bloqueia acesso a arquivos sensiveis
+<FilesMatch "\.(inc|log|bak|sql|md)$">
+    Require all denied
+</FilesMatch>
+
+# Bloqueia acesso direto a helpers internos
+<FilesMatch "^(security\.php|conexao\.php|php7_mysql_shim\.php)$">
+    Require all denied
+</FilesMatch>
+
+# Nao listar conteudo de diretorios
+Options -Indexes
+
+# Pagina 404 customizada (caminho escopado em /v2/)
+ErrorDocument 404 /v2/404.html
+
+# Compressao
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache de assets estaticos (1 ano)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

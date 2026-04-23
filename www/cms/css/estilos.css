@@ -1,0 +1,364 @@
+@charset "utf-8";
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	color: #333333;
+}
+
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	color: #333333;
+}
+
+ol {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	color: #333333;
+}
+
+form {
+	margin: 0px;
+}
+
+input,textarea,select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	color: #990000;
+	border: 1px solid #C8C8C8;
+}
+
+.certificados {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #00000;
+	border: 0px;
+	text-align: center;
+}
+
+input:focus,textarea:focus,select:focus {
+	color: #990000;
+	background-color: #FF9F9F;
+	font-weight: bold;
+	border:1px solid #990000;
+}
+
+a:link,a:visited,a:active {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	color: #333333;
+	text-decoration: none;
+}
+
+.table_main {
+	border: 1px solid #D8D8D8;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+.table_main_s {
+	border: 1px solid #C8E2B7;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+.table_main_e {
+	border: 1px solid #FB9C9C;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+.caixaIcone {
+	border: 1px solid #F0F0F0;
+	width: 100px;
+	height: 80px;
+	text-align: center;
+}
+
+.caixaFoto {
+	border: 1px solid #F0F0F0;
+	width: 110px;
+	height: 110px;
+	text-align: center;
+}
+
+.caixaFoto_opcoes {
+	margin-top: 5px;
+	border: 1px solid #F0F0F0;
+	width: 110px;
+	height: 20px;
+	text-align: center;
+}
+
+.caixa {
+	border: 1px solid #F0F0F0;
+	background-color: #FBFBFB;
+}
+
+.menu_topico {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #990000;
+	font-weight: bold;
+}
+
+.menu_topico_e {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.menu_topico_s {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #00FF00;
+	font-weight: bold;
+}
+
+.obrig {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #006699;
+}
+
+.nda {
+	border: 0px;
+}
+
+.menu_f {
+	background-image: url(../imagens/fundos/menu_f.gif);
+}
+
+.topo_f {
+	background-image: url(../imagens/fundos/topo_f.jpg);
+}
+
+.botao_blank {
+	border: 0px;
+	background-image: url(../imagens/fundos/botaoBlank_f.png);
+}
+
+.menuEsquerdo {
+	background-image: url(../imagens/fundos/botaoEsqeurdo_f.png);
+}
+
+.menuDireito {
+	background-image: url(../imagens/fundos/botaoDireito_f.png);
+}
+
+#border-top-e {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaLinhaCima_e.png) repeat-x;
+}
+
+#border-top-e div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaCimaLadoDireito_e.png) 100% 0
+		no-repeat;
+}
+
+#border-top-e div div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaCimaLadoEsquerdo_e.png) no-repeat
+		;
+	height: 11px;
+}
+
+#border-bottom-e {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaLinhaBaixo_e.png) repeat-x;
+}
+
+#border-bottom-e div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaBaixoLadoDireito_e.png) 100% 0
+		no-repeat;
+}
+
+#border-bottom-e div div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaBaixoLadoEsquerdo_e.png)
+		no-repeat;
+	height: 11px;
+}
+
+#border-top-s {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaLinhaCima_s.png) repeat-x;
+}
+
+#border-top-s div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaCimaLadoDireito_s.png) 100% 0
+		no-repeat;
+}
+
+#border-top-s div div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaCimaLadoEsquerdo_s.png) no-repeat
+		;
+	height: 11px;
+}
+
+#border-bottom-s {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaLinhaBaixo_s.png) repeat-x;
+}
+
+#border-bottom-s div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaBaixoLadoDireito_s.png) 100% 0
+		no-repeat;
+}
+
+#border-bottom-s div div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaBaixoLadoEsquerdo_s.png)
+		no-repeat;
+	height: 11px;
+}
+
+#border-top {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaLinhaCima.png) repeat-x;
+}
+
+#border-top div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaCimaLadoDireito.png) 100% 0
+		no-repeat;
+}
+
+#border-top div div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaCimaLadoEsquerdo.png) no-repeat;
+	height: 11px;
+}
+
+#border-bottom {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaLinhaBaixo.png) repeat-x;
+}
+
+#border-bottom div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaBaixoLadoDireito.png) 100% 0
+		no-repeat;
+}
+
+#border-bottom div div {
+	margin: 0px;
+	background: url(../imagens/fundos/caixaBaixoLadoEsquerdo.png) no-repeat;
+	height: 11px;
+}
+
+table.consulta {
+	width: 99%;
+	border-spacing: 1px;
+	background-color: #e7e7e7;
+	color: #666;
+}
+
+table.consulta td,table.consulta th {
+	padding: 4px;
+}
+
+table.consulta thead th {
+	text-align: center;
+	background: #f0f0f0;
+	color: #666;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #fff;
+}
+
+table.adminform.nospace {
+	margin-bottom: 0;
+}
+
+table.adminform tr.row0 {
+	background-color: #F0FFF0;
+}
+
+table.adminform tr.row1 {
+	background-color: #FEA0A0;
+}
+
+table.consulta thead a:hover {
+	text-decoration: none;
+}
+
+table.consulta thead th img {
+	vertical-align: middle;
+}
+
+table.consulta tbody th {
+	font-weight: bold;
+}
+
+table.consulta tbody tr {
+	background-color: #fff;
+	text-align: left;
+}
+
+table.consulta tbody tr.row1 {
+	background: #FEA0A0;
+	border-top: 1px solid #fff;
+}
+
+table.consulta tbody tr.row0:hover td {
+	background-color: #F1F0FF;
+}
+
+table.consulta tbody tr td {
+	height: 25px;
+	background: #fff;
+	border: 1px solid #fff;
+}
+
+table.consulta tbody tr.row1 td {
+	background: #FEA0A0;
+	border-top: 1px solid #FFF;
+}
+
+table.consulta tfoot tr {
+	text-align: center;
+	color: #333;
+}
+
+table.consulta tfoot td,table.consulta tfoot th {
+	background-color: #f3f3f3;
+	border-top: 1px solid #999;
+}
+
+table.consulta tfoot td table tr td {
+	background-color: #f3f3f3;
+	border: 0px;
+}
+
+table.consulta td.order {
+	text-align: center;
+}
+
+table.consulta td.order span {
+	float: left;
+	display: block;
+	width: 20px;
+	text-align: center;
+}
+
+table.consulta .pagination {
+	display: table;
+	padding: 0;
+	margin: 0 auto;
+}
+
+h1{ font-size:14px;}
+h2{ font-size:12px;}
+h3{ font-size:11px;}
