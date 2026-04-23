@@ -95,9 +95,9 @@ if($_dadosLogado->logado == "S" && $_dadosUnidade->acesso == "L"){
 		
 		// Gerenciamentos - Escolar
 		$_codJs .= "window.mm_menu_0712010718_1_2 = new Menu(\"Escolar\",120,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#333333\",\"#333333\",\"#f6f6f6\",\"#e7eddf\",\"left\",\"middle\",3,0,1000,3,0,true,true,true,0,true,true);";
-		$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Frequência/Diário\",\"location='?sessao=frequenciadiario'\");\r\n", array("99"));
-		//$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Diário de Classe\",\"location='?sessao=diarioclasse'\");\r\n", array("99"));
-		//$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Frequências\",\"location='?sessao=frequencias'\");\r\n", array("99"));
+		$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Frequï¿½ncia/Diï¿½rio\",\"location='?sessao=frequenciadiario'\");\r\n", array("99"));
+		//$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Diï¿½rio de Classe\",\"location='?sessao=diarioclasse'\");\r\n", array("99"));
+		//$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Frequï¿½ncias\",\"location='?sessao=frequencias'\");\r\n", array("99"));
 		$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Grade Horária\",\"location='?sessao=gradehoraria'\");\r\n", array("99"));
 		$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712010718_1_2.addMenuItem(\"Notas\",\"location='?sessao=notas'\");\r\n", array("99"));
 		$_codJs .= "mm_menu_0712010718_1_2.hideOnMouseOut=true;";
@@ -134,8 +134,8 @@ if($_dadosLogado->logado == "S" && $_dadosUnidade->acesso == "L"){
 	
 			// Manutenção - Escolar - Turmas
 			$_codJs .= "window.mm_menu_0712011423_3_4 = new Menu(\"Turmas\",100,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#333333\",\"#333333\",\"#f6f6f6\",\"#e7eddf\",\"left\",\"middle\",3,0,1000,3,0,true,true,true,0,true,true);";
-			$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3_4.addMenuItem(\"Ativas\",\"location='?sessao=turmasativas'\");\r\n", array("99", "98"));
-			$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3_4.addMenuItem(\"Concluídas\",\"location='?sessao=turmasconcluidas'\");\r\n", array("99", "98"));
+			$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3_4.addMenuItem(\"Ativas\",\"window.location.href='?sessao=turmasativas'\");\r\n", array("99", "98"));
+			$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3_4.addMenuItem(\"Concluídas\",\"window.location.href='?sessao=turmasconcluidas'\");\r\n", array("99", "98"));
 			$_codJs .= "mm_menu_0712011423_3_4.hideOnMouseOut=true;";
 			$_codJs .= "mm_menu_0712011423_3_4.menuBorder=1;";
 			$_codJs .= "mm_menu_0712011423_3_4.menuLiteBgColor='#ffffff';";
@@ -200,8 +200,8 @@ if($_dadosLogado->logado == "S" && $_dadosUnidade->acesso == "L"){
 		$_codJs .= "mm_menu_0712011614_4_1.menuBorderBgColor='#d8d8d8';";
 		$_codJs .= "mm_menu_0712011614_4_1.bgColor='#ffffff';";
 		
-		// Relatórios - Declarações
-		$_codJs .= "window.mm_menu_0712011614_4_2 = new Menu(\"Declarações\",100,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#333333\",\"#333333\",\"#f6f6f6\",\"#e7eddf\",\"left\",\"middle\",3,0,1000,3,0,true,true,true,0,true,true);";
+		// Relatórios - Declaraï¿½ï¿½es
+		$_codJs .= "window.mm_menu_0712011614_4_2 = new Menu(\"Declaraï¿½ï¿½es\",100,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#333333\",\"#333333\",\"#f6f6f6\",\"#e7eddf\",\"left\",\"middle\",3,0,1000,3,0,true,true,true,0,true,true);";
 		$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4_2.addMenuItem(\"Provisória\",\"location='?sessao=rel_declaracaoprovisoria'\");\r\n", array("99", "98"));
 		$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4_2.addMenuItem(\"Matrícula\",\"location='?sessao=rel_declaracaomatricula'\");\r\n", array("99", "98"));
 		$_codJs .= "mm_menu_0712011614_4_2.hideOnMouseOut=true;";
@@ -213,11 +213,11 @@ if($_dadosLogado->logado == "S" && $_dadosUnidade->acesso == "L"){
 	// Relatórios
 	$_codJs .= "window.mm_menu_0712011614_4 = new Menu(\"root\",132,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#333333\",\"#333333\",\"#f6f6f6\",\"#e7eddf\",\"left\",\"middle\",3,0,1000,3,0,true,true,true,0,true,true);\r\n";
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Grade Horária\",\"location='?sessao=rel_gradehoraria'\");\r\n", array("99", "98"));
-	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Frequências\",\"location='?sessao=rel_frequencias'\");\r\n", array("99", "98"));
+	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Frequï¿½ncias\",\"location='?sessao=rel_frequencias'\");\r\n", array("99", "98"));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Lista de Chamada\",\"location='?sessao=rel_listachamada'\");\r\n", array("99", "98"));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(mm_menu_0712011614_4_1,\"location='#'\");\r\n", array("99"));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Ficha Cadastral\",\"location='?sessao=rel_fichacadastral'\");\r\n", array("99", "98"));
-	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Documentação\",\"location='?sessao=rel_documentacao'\");\r\n", array("99", "98"));
+	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Documentaï¿½ï¿½o\",\"location='?sessao=rel_documentacao'\");\r\n", array("99", "98"));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Alunos Matriculados\",\"location='?sessao=rel_alunosmatriculados'\");\r\n", array("99", "98"));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Alunos Concluídos\",\"location='?sessao=rel_alunosconcluidos'\");\r\n", array("99", "98"));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011614_4.addMenuItem(\"Certificados\",\"location='?sessao=rel_certificados'\");\r\n", array("99", "98"));
@@ -238,7 +238,7 @@ if($_dadosLogado->logado == "S" && $_dadosUnidade->acesso == "L"){
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_1001141613_5.addMenuItem(\"Escolher a Atlas?\",\"location='?sessao=site_escolheratlas'\");\r\n", array(""));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_1001141613_5.addMenuItem(\"Institucional\",\"location='?sessao=site_institucional'\");\r\n", array(""));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_1001141613_5.addMenuItem(\"Galeria de Fotos\",\"location='?sessao=site_galeriafotos'\");\r\n", array(""));
-	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_1001141613_5.addMenuItem(\"Galeria de Vídeos\",\"location='?sessao=site_galeriavideos'\");\r\n", array(""));
+	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_1001141613_5.addMenuItem(\"Galeria de Vï¿½deos\",\"location='?sessao=site_galeriavideos'\");\r\n", array(""));
 	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_1001141613_5.addMenuItem(\"Contato\",\"location='?sessao=site_contato'\");\r\n", array(""));
 	$_codJs .= "mm_menu_1001141613_5.hideOnMouseOut=true;\r\n";
 	$_codJs .= "mm_menu_1001141613_5.childMenuIcon=\"" . $pathInc . "imagens/diversos/arrow.gif\";";

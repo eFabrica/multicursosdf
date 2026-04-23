@@ -78,7 +78,7 @@ function writeMenus(container) {
 	window.mmIsOpera = agt.indexOf("opera") != -1;
 	if (!container && document.layers) {
 		window.delayWriteMenus = this.writeMenus;
-		var timer = setTimeout('delayWriteMenus()', 500);
+		var timer = setTimeout(delayWriteMenus, 500);
 		container = new Layer(100);
 		clearTimeout(timer);
 	} else if (document.all || document.hasChildNodes || window.mmIsOpera) {
@@ -417,7 +417,7 @@ function writeMenus(container) {
 		window.onresize = NS4resize;
 		window.NS4sIW = window.innerWidth;
 		window.NS4sIH = window.innerHeight;
-		setTimeout("NS4resize()",500);
+		setTimeout(NS4resize, 500);
 	}
 	document.onmouseup = mouseupMenu;
 	window.mmWroteMenu = true;
@@ -478,11 +478,22 @@ function onMenuItemOver(e, l) {
 	window.ActiveMenuItem = l;
 }
 
+// CSP-safe replacement for eval of addMenuItem action strings.
+// Parses "location='?sessao=x'" / "window.location.href='?sessao=x'" forms
+// and navigates without eval. Empty or '#' targets are ignored.
+function mmRunAction(action) {
+	if (!action) return;
+	var m = String(action).match(/(?:window\.)?location(?:\.href)?\s*=\s*['"]([^'"]*)['"]/);
+	if (m && m[1] && m[1] !== '#') {
+		window.location.href = m[1];
+	}
+}
+
 function onMenuItemAction(e, l) {
 	l = window.ActiveMenuItem;
 	if (!l) return;
 	hideActiveMenus();
-	if (l.mmaction) eval("" + l.mmaction);
+	if (l.mmaction) mmRunAction(l.mmaction);
 	window.ActiveMenuItem = 0;
 }
 
@@ -496,7 +507,7 @@ function MM_startTimeout() {
 	if( window.ActiveMenu ) {
 		mmStart = new Date();
 		mmDHFlag = true;
-		mmHideMenuTimer = setTimeout("mmDoHide()", window.ActiveMenu.Menu.hideTimeout);
+		mmHideMenuTimer = setTimeout(mmDoHide, window.ActiveMenu.Menu.hideTimeout);
 	}
 }
 
@@ -505,7 +516,7 @@ function mmDoHide() {
 	var elapsed = new Date() - mmStart;
 	var timeout = window.ActiveMenu.Menu.hideTimeout;
 	if (elapsed < timeout) {
-		mmHideMenuTimer = setTimeout("mmDoHide()", timeout+100-elapsed);
+		mmHideMenuTimer = setTimeout(mmDoHide, timeout+100-elapsed);
 		return;
 	}
 	mmDHFlag = false;
@@ -582,6 +593,23 @@ function onMenuItemDown(e, l) {
 }
 
 function mouseupMenu(e) {
+	// Modern browsers drop the subsequent "click" event if the target is hidden
+	// during mouseup. When the mouseup lands on the hovered menu item, run its
+	// action here instead of relying on the click event that never fires.
+	var a = window.ActiveMenuItem;
+	var target = (e && e.target) || (window.event && window.event.srcElement);
+	var insideActive = false;
+	if (a && target) {
+		var n = target;
+		while (n) { if (n === a) { insideActive = true; break; } n = n.parentNode; }
+	}
+	if (insideActive && a.mmaction && !a.childMenu) {
+		var action = a.mmaction;
+		window.ActiveMenuItem = 0;
+		hideActiveMenus();
+		mmRunAction(action);
+		return true;
+	}
 	hideMenu(true, e);
 	hideActiveMenus();
 	return true;
@@ -614,7 +642,7 @@ function hideMenu(mouseup, e) {
 		if (a.hilite) a.hilite.visibility = "hidden";
 		if (mouseup && a.mmaction && a.clicked && window.ActiveMenu) {
  			if (a.eX <= e.pageX+15 && a.eX >= e.pageX-15 && a.eY <= e.pageY+10 && a.eY >= e.pageY-10) {
-				setTimeout('window.ActiveMenu.Menu.onMenuItemAction();', 500);
+				setTimeout(function(){ window.ActiveMenu.Menu.onMenuItemAction(); }, 500);
 			}
 		}
 		a.clicked = false;

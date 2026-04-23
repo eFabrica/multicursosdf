@@ -1,14 +1,12 @@
 <title>SGE - Sistema de Gerenciamento Escolar</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link href="<?php print($pathInc);?>
-
-css/estilos.css" rel="stylesheet" type="text/css">
-<link href="<?php print($pathInc);?>css/menu.css" rel="stylesheet" type="text/css">
-<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/mm_menu.js"></script>
-<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/menu.js"></script>
-<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/prototype.js"></script>
-<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/uteis.js"></script>
-<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/executores.js"></script>
+<link href="<?php print($pathInc);?>css/estilos.css?v=<?php print(@filemtime(__DIR__ . '/../css/estilos.css'));?>" rel="stylesheet" type="text/css">
+<link href="<?php print($pathInc);?>css/menu.css?v=<?php print(@filemtime(__DIR__ . '/../css/menu.css'));?>" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/mm_menu.js?v=<?php print(@filemtime(__DIR__ . '/../js/mm_menu.js'));?>"></script>
+<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/menu.js?v=<?php print(@filemtime(__DIR__ . '/../js/menu.js'));?>"></script>
+<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/prototype.js?v=<?php print(@filemtime(__DIR__ . '/../js/prototype.js'));?>"></script>
+<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/uteis.js?v=<?php print(@filemtime(__DIR__ . '/../js/uteis.js'));?>"></script>
+<script language="javascript" type="text/javascript" src="<?php print($pathInc);?>js/executores.js?v=<?php print(@filemtime(__DIR__ . '/../js/executores.js'));?>"></script>
 <script language="javascript" type="text/javascript">
 try{
     xmlhttp = new XMLHttpRequest();
@@ -63,17 +61,17 @@ function carrega(ref){
     xmlhttp.setRequestHeader("Cache-Control", "post-check=0, pre-check=0"); 
     xmlhttp.setRequestHeader("Pragma", "no-cache");
 
-    //Executada quando o navegador obtiver o código
+    //Executada quando o navegador obtiver o cï¿½digo
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4){
 			if (xmlhttp.status == 200) {
-				//Lê o texto
+				//Lï¿½ o texto
 				var texto=xmlhttp.responseText
 				
 				//Tira o carregando
 				loading.style.display = "none";
 				
-				//Exibe o texto no div conteúdo
+				//Exibe o texto no div conteï¿½do
 				main.innerHTML = url_decode(texto);
 				
 			}
@@ -95,14 +93,14 @@ function carregasl(ref, mains){
     xmlhttp.setRequestHeader("Cache-Control", "post-check=0, pre-check=0"); 
     xmlhttp.setRequestHeader("Pragma", "no-cache");
 
-    //Executada quando o navegador obtiver o código
+    //Executada quando o navegador obtiver o cï¿½digo
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4){
 			if (xmlhttp.status == 200) {
-				//Lê o texto
+				//Lï¿½ o texto
 				var texto1=xmlhttp.responseText
 				
-				//Exibe o texto no div conteúdo
+				//Exibe o texto no div conteï¿½do
 				main.innerHTML = url_decode(texto1);
 				
 			}

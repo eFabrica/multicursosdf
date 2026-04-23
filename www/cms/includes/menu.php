@@ -46,8 +46,8 @@ if($_dadosLogado->logado == "S" && $_dadosUnidade->acesso == "L"){
 	
 	// Manutenção
 	$_codJs .= "window.mm_menu_0712011423_3 = new Menu(\"root\",80,16,\"Verdana, Arial, Helvetica, sans-serif\",10,\"#333333\",\"#333333\",\"#f6f6f6\",\"#e7eddf\",\"left\",\"middle\",3,0,1000,3,0,true,true,true,0,true,true);\r\n";
-	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3.addMenuItem(\"Ativas\",\"location='?sessao=turmasativas'\");\r\n", array("99", "89", "98"));
-	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3.addMenuItem(\"Concluídas\",\"location='?sessao=turmasconcluidas'\");\r\n", array("99", "89", "98"));
+	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3.addMenuItem(\"Ativas\",\"window.location.href='?sessao=turmasativas'\");\r\n", array("99", "89", "98"));
+	$_codJs .= $_ClassPermissao->validaPermissaoSee("mm_menu_0712011423_3.addMenuItem(\"Concluídas\",\"window.location.href='?sessao=turmasconcluidas'\");\r\n", array("99", "89", "98"));
 	$_codJs .= "mm_menu_0712011423_3.hideOnMouseOut=true;\r\n";
 	$_codJs .= "mm_menu_0712011423_3.childMenuIcon=\"" . $pathInc . "imagens/diversos/arrow.gif\";";
 	$_codJs .= "mm_menu_0712011423_3.menuBorder=1;\r\n";
@@ -134,7 +134,7 @@ if($_dadosLogado->logado == "S" && $_dadosUnidade->acesso == "L"){
 																				?>
 
 																			</div>
-																			<script>window.setTimeout("selecionaAba('<?=$_modulo?>')", 1);</script>
+																			<script>window.setTimeout(function(){ selecionaAba('<?=$_modulo?>'); }, 1);</script>
 																		</td>
 																	</tr>
 																</tbody>
