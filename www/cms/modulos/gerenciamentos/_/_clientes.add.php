@@ -1,4 +1,4 @@
-<?php require_once("php7_mysql_shim.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 // Verifica Ação
 if($_REQUEST["act"] == "salvar"){
 	

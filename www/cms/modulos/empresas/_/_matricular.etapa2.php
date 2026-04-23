@@ -6,7 +6,7 @@
 		<table width="99%" border="0" cellpadding="2" cellspacing="2" align="center">
 			<tr>
 				<td align="left">
-					<?php require_once("php7_mysql_shim.php");
+					<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 					// Verifica turma selecionada
 					if($_REQUEST["turma"] > 0){
 						

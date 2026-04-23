@@ -1,4 +1,4 @@
-<?php require_once("php7_mysql_shim.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 // Classe de Dinheiro
 require_once($pathInc . "lib/Dinheiro.class.php");
 

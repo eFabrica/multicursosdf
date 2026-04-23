@@ -1,4 +1,4 @@
-<?php require_once("php7_mysql_shim.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 // Dados da Turma
 $dadosTurma = $_ClassRn->getDadosTable("turmas", "*", "id = '" . $_SESSION["matricular"]["idTurma"] . "'");
 

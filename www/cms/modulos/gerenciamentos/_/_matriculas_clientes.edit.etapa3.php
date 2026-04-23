@@ -1,4 +1,4 @@
-<?php require_once("php7_mysql_shim.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 // Verifica se foi selecionado algum aluno
 if($dadosMatricula->aluno > 0){
 	

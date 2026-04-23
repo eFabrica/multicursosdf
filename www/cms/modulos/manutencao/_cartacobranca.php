@@ -20,7 +20,7 @@
 	<tr>
 		<td align='left'><div id="border-bottom"><div><div></div></div></div></td>
 	</tr>
-	<?php require_once("php7_mysql_shim.php");
+	<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 	// Seta largura das mensagens
 	$_ClassMensagens->setLargura(100);
 			

@@ -1,4 +1,4 @@
-<?php require_once("php7_mysql_shim.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 // Inicia Sessão
 session_start();
 

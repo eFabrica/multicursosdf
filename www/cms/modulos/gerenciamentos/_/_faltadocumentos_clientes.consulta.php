@@ -17,7 +17,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php require_once("php7_mysql_shim.php");
+							<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 							/* Construindo sql */
 							$sql = "SELECT * FROM `matriculas`";
 							$sql .= " WHERE ";

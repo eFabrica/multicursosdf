@@ -1,7 +1,7 @@
 <tr>
 	<td style='height:5px';>&nbsp;</td>
 </tr>
-<?php require_once("php7_mysql_shim.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 // Adiciona Classe de CPF
 require_once($pathInc . "lib/Cpf.class.php");
 

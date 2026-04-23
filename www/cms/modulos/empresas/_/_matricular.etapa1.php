@@ -10,7 +10,7 @@
 						<tr>
 							<td class="menu_topico_s">Próximas Turmas</td>
 						</tr>
-						<?php require_once("php7_mysql_shim.php");
+						<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 						// Busca Cursos
 						$buscaCursos = $_ClassMysql->query("SELECT * FROM `cursos` WHERE deletado = 'N' AND unidade = '" . $_dadosLogado->unidade . "' AND id = '2'");
 						

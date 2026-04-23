@@ -6,7 +6,7 @@
 		<table border="0" width="100%" cellpadding="2" cellspacing="2" align="center">
 			<tr>
 				<td width="15%" align="right"><strong>Palavra-Chave:</strong></td>
-				<td align='left'><input type="text" id="palavraChave" value="<?php require_once("php7_mysql_shim.php"); print($_REQUEST["pc"]);?>" size="50" onkeyup="consulta('consultaCobrancas', 'consulta', 'consultaLoading', this.value, 'consultaTable', '<?php print("modulo=" . $_REQUEST["modulo"] . "&sessao=" . $_REQUEST["sessao"] . "&pg=" . $_REQUEST["pg"]);?>', '<?php print($pathInc);?>')"></td>
+				<td align='left'><input type="text" id="palavraChave" value="<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php"); print($_REQUEST["pc"]);?>" size="50" onkeyup="consulta('consultaCobrancas', 'consulta', 'consultaLoading', this.value, 'consultaTable', '<?php print("modulo=" . $_REQUEST["modulo"] . "&sessao=" . $_REQUEST["sessao"] . "&pg=" . $_REQUEST["pg"]);?>', '<?php print($pathInc);?>')"></td>
 			</tr>
 		</table>
 	</td>

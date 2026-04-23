@@ -10,7 +10,7 @@
 					<td align="left" width="" class="menu_topico">Faturas</td>
 					<td align="right">
 						<table border="0" cellpadding="2" cellspacing="0">
-							<?php require_once("php7_mysql_shim.php");
+							<?php require_once($_SERVER["DOCUMENT_ROOT"] . "/php7_mysql_shim.php");
 							// Verifica Referência
 							if($_REQUEST["subref"] == "listar"){
 								

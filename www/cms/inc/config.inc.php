@@ -1,7 +1,7 @@
 <?php
 // Forca charset ISO-8859-1 no header HTTP (sobrescreve default_charset=UTF-8 do PHP 7.4)
 if (!headers_sent()) { header("Content-Type: text/html; charset=ISO-8859-1"); }
-require_once("php7_mysql_shim.php");
+require_once(__DIR__ . "/../../php7_mysql_shim.php");
 # Lib
 
 	// Importa lib do MYSQL
