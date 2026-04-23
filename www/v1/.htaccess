@@ -1,0 +1,9 @@
+# Em producao, a senha SMTP DEVE vir de um .htaccess fora do versionamento
+# OU de variaveis de ambiente. Jamais commite credenciais reais.
+# Exemplo (substitua os placeholders):
+#
+# php_flag  authmail.debug        OFF
+# php_value authmail.address      contato@multicursosdf.com.br
+# php_value authmail.smtp_account contato=multicursosdf.com.br
+# php_value authmail.smtp         smtp.multicursosdf.com.br
+# php_value authmail.password     '<SMTP_PASSWORD_AQUI>'

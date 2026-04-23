@@ -26,7 +26,7 @@ $prefix = $nav_external ? 'index.php' : '';
       <a href="<?= $prefix ?>#localizacao">Localização</a>
       <a href="<?= $prefix ?>#contato">Contato</a>
       <a href="<?= $prefix ?>#contato" class="nav-cta">Matricule-se</a>
-      <a href="https://www.multicursosdf.com.br/cms/areaLogin.php" class="nav-admin" rel="nofollow noopener" target="_blank">Área Restrita</a>
+      <a href="https://www.multicursosdf.com.br/cms/areaLogin.php" class="nav-admin" rel="nofollow">Área Restrita</a>
     </nav>
   </div>
 </header>

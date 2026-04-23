@@ -18,5 +18,5 @@ session_unset();
 session_destroy();
 
 // Redireciona
-header("Location: ../../../site/");
+header("Location: /index.php");
 ?>
