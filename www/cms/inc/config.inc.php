@@ -48,16 +48,16 @@ require_once("php7_mysql_shim.php");
 	*/
 	
 	// Seta host (usa env var em dev via docker, fallback para produção)
-	$_ClassMysql->setHost(getenv("DB_HOST") ?: die("DB_HOST nao definida"));
+	require_once(__DIR__ . "/db-loader.php"); $_db = db_credentials(); $_ClassMysql->setHost($_db["host"]);
 
 	// Seta usuário
-	$_ClassMysql->setUser(getenv("DB_USER") ?: die("DB_USER nao definida"));
+	$_ClassMysql->setUser($_db["user"]);
 
 	// Seta senha mysql
-	$_ClassMysql->setSenha(getenv("DB_PASS") ?: die("DB_PASS nao definida"));
+	$_ClassMysql->setSenha($_db["pass"]);
 
 	// Seta banco
-	$_ClassMysql->setBanco(getenv("DB_NAME") ?: die("DB_NAME nao definida"));
+	$_ClassMysql->setBanco($_db["name"]);
 	
 	
 	// Efetua a conexão

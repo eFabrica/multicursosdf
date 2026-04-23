@@ -6,6 +6,11 @@
 .env.*.local
 !.env.example
 
+# Config local do banco (criada em cada deploy com credenciais reais)
+# Mantem apenas o sample no repo
+www/cms/inc/db-config.php
+!www/cms/inc/db-config.sample.php
+
 # WordPress: wp-config.php contem AUTH_KEYs e credenciais da instalacao.
 # Mantem apenas o sample; cada deploy cria seu proprio wp-config.php.
 www/lp/wp-config.php
